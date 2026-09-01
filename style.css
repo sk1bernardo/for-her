@@ -1,0 +1,600 @@
+/* style.css */
+:root {
+    --primary: #ff477e;
+    --primary-glow: rgba(255, 71, 126, 0.4);
+    --secondary: #ff7096;
+    --bg-start: #160111;
+    --bg-end: #050004;
+    --text-main: #fff;
+    --text-muted: #ffb3c6;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle at center, var(--bg-start) 0%, var(--bg-end) 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Background Animated Hearts */
+.heart-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    background-color: var(--primary);
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    transform: rotate(-45deg);
+    width: 30px;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+    animation: floatUp 10s linear infinite;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+    content: "";
+    background-color: var(--primary);
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.floating-heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.floating-heart::after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        transform: rotate(-45deg) scale(0.3) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        bottom: 105vh;
+        transform: rotate(-45deg) scale(1) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Heart Mouse Trail Effect */
+.trail-heart {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    color: var(--primary);
+    font-size: 20px;
+    animation: fadeAndRise 1s forwards ease-out;
+}
+
+@keyframes fadeAndRise {
+    0% {
+        transform: translate(-50%, -50%) scale(1) translateY(0);
+        opacity: 1;
+        filter: drop-shadow(0 0 2px var(--primary));
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0.2) translateY(-80px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Main Container and Glassmorphic Card */
+.proposal-container {
+    z-index: 10;
+    padding: 20px;
+    width: 100%;
+    max-width: 460px;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(255, 71, 126, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: cardEntrance 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 71, 126, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes cardEntrance {
+    0% {
+        transform: scale(0.8) translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Couple Illustration */
+.image-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: 0 8px 24px rgba(255, 71, 126, 0.3);
+}
+
+.couple-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1c0515;
+}
+
+.heart-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Typography */
+.proposal-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 71, 126, 0.5);
+    background: linear-gradient(to right, #fff, #ffb3c6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.proposal-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* Buttons Styling */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    min-height: 60px;
+}
+
+.btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    outline: none;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    box-shadow: 0 4px 15px var(--primary-glow);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btn-yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(255, 71, 126, 0.6);
+}
+
+.btn-yes:active {
+    transform: scale(0.95);
+}
+
+.btn-no {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    /* transition must be fast for the runaway behavior */
+    transition: left 0.15s cubic-bezier(0.25, 0.8, 0.25, 1),
+        top 0.15s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 0.2s ease,
+        background-color 0.2s ease;
+    z-index: 999;
+}
+
+.btn-no:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* Success Overlay */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #2d0b1e 0%, #050004 100%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.success-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.success-content {
+    text-align: center;
+    padding: 30px;
+    max-width: 450px;
+    transform: scale(0.8);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-overlay.active .success-content {
+    transform: scale(1);
+}
+
+.big-heart {
+    font-size: 7rem;
+    margin-bottom: 20px;
+    animation: heartbeat 1s infinite alternate;
+    filter: drop-shadow(0 0 20px var(--primary));
+}
+
+.success-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 71, 126, 0.5);
+}
+
+.success-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Loading animation on success page */
+.heart-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.heart-loader span {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulseLoader 1.2s infinite ease-in-out both;
+}
+
+.heart-loader span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.heart-loader span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes pulseLoader {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.3;
+    }
+
+    40% {
+        transform: scale(1.0);
+        opacity: 1;
+        background-color: var(--secondary);
+        box-shadow: 0 0 10px var(--primary-glow);
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 30px 20px;
+    }
+
+    .proposal-title {
+        font-size: 2.8rem;
+    }
+
+    .proposal-text {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .success-title {
+        font-size: 3rem;
+    }
+}
+
+/* ============================================================
+   SLIDE / PAGES SYSTEM
+   ============================================================ */
+
+/* All slides are hidden by default */
+.slide {
+    display: none;
+    text-align: center;
+    animation: slideIn 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Emoji big icon per slide */
+.slide-emoji {
+    font-size: 4rem;
+    margin-bottom: 14px;
+    display: block;
+    animation: heartbeat 2s infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 71, 126, 0.5));
+}
+
+/* Slide title */
+.slide-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 16px;
+    text-shadow: 0 0 10px rgba(255, 71, 126, 0.5);
+    background: linear-gradient(to right, #fff, #ffb3c6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Slide body text */
+.slide-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* "Continue lendo" hint */
+.slide-hint {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--primary);
+    opacity: 0.8;
+    font-style: italic;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* List items for slide 1 */
+.slide-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.slide-list li {
+    font-size: 1rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    animation: slideIn 0.6s ease both;
+}
+
+.slide-list li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.slide-list li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.slide-list li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.slide-list li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* ============================================================
+   PAGE DOTS
+   ============================================================ */
+.page-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.dot.active {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+    transform: scale(1.25);
+}
+
+/* ============================================================
+   NAVIGATION BUTTONS (Prev / Next)
+   ============================================================ */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    gap: 12px;
+}
+
+.nav-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    flex: 1;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: rgba(255, 71, 126, 0.2);
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
+    transform: scale(1.04);
+}
+
+.nav-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Hide nav-buttons on the final slide (it has its own Sim/Não buttons) */
+.hide-nav {
+    display: none;
+}

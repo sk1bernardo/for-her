@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer Namorar Comigo? ❤️</title>
+    <meta name="description" content="Uma mensagem especial cheia de amor para você.">
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Heart Background Container -->
+    <div class="heart-background" id="heart-bg"></div>
+
+    <!-- Main Proposal Card -->
+    <main class="proposal-container">
+        <div class="glass-card" id="glass-card">
+            <div class="card-glow"></div>
+
+            <!-- Page Indicator Dots -->
+            <div class="page-dots" id="page-dots">
+                <span class="dot active" data-page="0"></span>
+                <span class="dot" data-page="1"></span>
+                <span class="dot" data-page="2"></span>
+                <span class="dot" data-page="3"></span>
+            </div>
+
+            <!-- ============ PAGE 0 ============ -->
+            <div class="slide active" id="slide-0">
+                <div class="slide-emoji">🌸</div>
+                <h1 class="slide-title">Para você...</h1>
+                <p class="slide-text">
+                    Às vezes a vida nos surpreende com algo tão especial que a gente fica sem palavras.
+                    Você é essa surpresa pra mim. Reservei esse momento para te contar algo que vem do fundo do meu
+                    coração.
+                </p>
+                <p class="slide-hint">Continue lendo... 💕</p>
+            </div>
+
+            <!-- ============ PAGE 1 ============ -->
+            <div class="slide" id="slide-1">
+                <div class="slide-emoji">✨</div>
+                <h2 class="slide-title">Por que você é especial</h2>
+                <ul class="slide-list">
+                    <li>💖 Seu sorriso ilumina qualquer lugar</li>
+                    <li>🌙 Você faz os meus dias mais felizes</li>
+                    <li>🦋 Do seu jeito único de ser</li>
+                    <li>🌟 Da forma como você cuida de quem ama</li>
+                </ul>
+                <p class="slide-text" style="margin-top: 16px;">
+                    São tantos os motivos que não caberiam aqui...
+                </p>
+            </div>
+
+            <!-- ============ PAGE 2 ============ -->
+            <div class="slide" id="slide-2">
+                <div class="slide-emoji">💌</div>
+                <h2 class="slide-title">Do fundo do meu coração</h2>
+                <p class="slide-text">
+                    Pensei muito antes de escrever isso. Cada vez que estamos juntos, eu percebo o quanto você é
+                    importante pra mim. Quero poder te chamar de minha, quero dividir os momentos mais
+                    simples e os mais especiais com você.
+                </p>
+                <p class="slide-text" style="margin-top:12px; font-style: italic;">
+                    "Você chegou do completo nada e ficou pra sempre no meu pensamento." 🌹
+                </p>
+            </div>
+
+            <!-- ============ PAGE 3 (Final - Pedido) ============ -->
+            <div class="slide" id="slide-3">
+                <!-- Beautiful couple illustration -->
+                <div class="image-wrapper">
+                    <img src="couple_illustration.png" alt="Casal Apaixonado" class="couple-image">
+                    <div class="heart-badge">❤️</div>
+                </div>
+
+                <!-- Love message -->
+                <h2 class="proposal-title">Quer namorar comigo?</h2>
+                <p class="proposal-text">
+                    Cada segundo ao seu lado é como viver em um sonho lindo. Você aceita caminhar de mãos dadas comigo e
+                    escrever a história mais bonita de nossas vidas?
+                </p>
+
+                <!-- Buttons container -->
+                <div class="btn-group">
+                    <button id="btn-sim" class="btn btn-yes">
+                        Sim! 💖
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button id="btn-nao" class="btn btn-no">
+                        Não 😢
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="nav-buttons">
+                <button class="nav-btn nav-prev" id="btn-prev" disabled aria-label="Página anterior">
+                    ← Voltar
+                </button>
+                <button class="nav-btn nav-next" id="btn-next" aria-label="Próxima página">
+                    Próximo →
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Success Screen overlay -->
+    <div id="success-overlay" class="success-overlay">
+        <div class="success-content">
+            <div class="big-heart">❤️</div>
+            <h2 class="success-title">Eu sabia que me ama... </h2>
+            <p class="success-text">Te amo muito!</p>
+            <div class="heart-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script loading -->
+    <script src="script.js"></script>
+</body>
+
+</html>
